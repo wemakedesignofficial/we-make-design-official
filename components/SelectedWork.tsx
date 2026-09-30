@@ -29,10 +29,9 @@ const posterSlides: PosterSlide[] = [
 ];
 
 const invitationSlides: PosterSlide[] = [
-  { src: '/assets/invitations/floral-classic.webp', alt: 'Floral wedding invitation concept. Names, date and venue in the artwork are sample details.' },
-  { src: '/assets/invitations/tropical-garden.webp', alt: 'Tropical garden wedding invitation template concept with blank space for event details.' },
-  { src: '/assets/invitations/midnight-garden.webp', alt: 'Midnight blue floral wedding invitation template concept with blank space for event details.' },
-  { src: '/assets/invitations/blush-botanical.webp', alt: 'Blush botanical wedding invitation template concept with blank space for event details.' },
+  { src: '/assets/invitations/invitation-phone-nikhil-ananya.jpg', alt: 'Floral digital wedding invitation displayed on a phone; names and event details are illustrative template content.' },
+  { src: '/assets/invitations/invitation-tablet-rohan-diya.jpg', alt: 'Floral digital wedding invitation displayed on a tablet; names and event details are illustrative template content.' },
+  { src: '/assets/invitations/invitation-phone-backwater.jpg', alt: 'Digital wedding invitation with a backwater scene displayed on a phone; names and event details are illustrative template content.' },
 ];
 
 const work: WorkItem[] = [
