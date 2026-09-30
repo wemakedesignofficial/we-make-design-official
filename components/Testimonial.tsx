@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { INVITATION_DEMO_POSTER, INVITATION_DEMO_URL, INVITATION_DEMO_VIDEO, INSTAGRAM_URL } from '@/lib/site';
+import { INVITATION_DEMO_URL, INSTAGRAM_URL } from '@/lib/site';
 
 const disciplines = [
   { id: 'web', label: 'Websites', index: '01', title: 'A digital home built around your business.', detail: 'Brand-led websites, thoughtfully designed and developed to turn a first visit into a next step.', checks: ['UI/UX design and responsive layouts', 'Business websites and online stores', 'Mobile-first development', 'Clear navigation and performance-minded builds'], project: 'Handmade Haven', image: '/assets/brochure-websites.png', alt: 'Websites brochure page: web design services and a website mockup', color: '#c9a26b', tag: 'Design · Development', href: '/work/handmade-haven/' },
@@ -14,23 +14,11 @@ const disciplines = [
 
 export default function Testimonial() {
   const [activeId, setActiveId] = useState(disciplines[0].id);
-  const [videoAvailable, setVideoAvailable] = useState(false);
   const active = disciplines.find((item) => item.id === activeId) ?? disciplines[0];
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     disciplines.forEach(({ image }) => { const preload = new window.Image(); preload.src = image; });
-  }, []);
-
-  useEffect(() => {
-    if (!INVITATION_DEMO_VIDEO) return;
-    const video = document.createElement('video');
-    video.muted = true;
-    video.preload = 'auto';
-    video.src = INVITATION_DEMO_VIDEO;
-    video.onloadeddata = () => setVideoAvailable(true);
-    video.onerror = () => setVideoAvailable(false);
-    video.load();
   }, []);
 
   const external = active.href.startsWith('http');
@@ -53,9 +41,9 @@ export default function Testimonial() {
                 <p className="eyebrow"><span className="active-index">{active.index}</span> / {active.tag}</p><h3>{active.title}</h3>
                 {active.id !== 'security' && <p className="instrument-detail">{active.detail}</p>}
                 <p className="eyebrow offerings-eyebrow">Included in this discipline</p>
-                <ul className="discipline-checklist">{active.checks?.map((check) => <li key={check}>{check}</li>)}</ul>
+                <ul className="discipline-checklist">{active.checks?.map((check, index) => <motion.li key={check} initial={reduceMotion ? false : { opacity: 0, x: -7 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: reduceMotion ? 0 : 0.3, delay: reduceMotion ? 0 : index * 0.055 }}>{check}</motion.li>)}</ul>
                 {active.id === 'security' && <p className="instrument-detail">{active.detail}</p>}
-                {active.id === 'invitation' && <div className="invitation-demo"><div className="invitation-demo-media">{videoAvailable ? <video src={INVITATION_DEMO_VIDEO} poster={INVITATION_DEMO_POSTER} muted loop autoPlay playsInline aria-label="Interactive invitation demo" /> : <div className="invitation-demo-placeholder" role="img" aria-label="Invitation video preview placeholder">Invitation demo preview</div>}</div><p>Interactive envelope reveal with a personalised countdown.</p>{INVITATION_DEMO_URL && <a href={INVITATION_DEMO_URL} target="_blank" rel="noreferrer">View live invitation ↗</a>}</div>}
+                {active.id === 'invitation' && <div className="invitation-demo"><div className="invitation-demo-art" role="img" aria-label="A digital invitation lifting from a burgundy envelope"><div className="invitation-demo-glow" /><div className="invitation-demo-letter"><span>AN INVITATION</span><b>For your next celebration</b><i aria-hidden="true">✳</i></div><div className="invitation-demo-envelope"><span /></div></div><p>Interactive envelope reveal with a personalised countdown.</p>{INVITATION_DEMO_URL && <a href={INVITATION_DEMO_URL} target="_blank" rel="noreferrer">View live invitation ↗</a>}</div>}
                 <a href={active.href} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined} className="instrument-link">{external ? 'Talk to us about this' : `Explore ${active.project}`} <span>↗</span></a>
                 <div className="instrument-coordinate"><span>Selected discipline <b>{active.index} / 04</b></span><span>WE MAKE DESIGN</span></div>
               </div>
