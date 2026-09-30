@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 
 type PosterSlide = { src: string; alt: string };
 
-export default function PosterCarousel({ slides }: { slides: PosterSlide[] }) {
+export default function PosterCarousel({ slides, label = 'Poster design gallery' }: { slides: PosterSlide[]; label?: string }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -34,7 +34,7 @@ export default function PosterCarousel({ slides }: { slides: PosterSlide[] }) {
     <div
       className="poster-carousel"
       role="region"
-      aria-label="Poster design gallery"
+      aria-label={label}
       aria-roledescription="carousel"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}

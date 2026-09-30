@@ -28,11 +28,18 @@ const posterSlides: PosterSlide[] = [
   { src: '/assets/posters/lokah-chandra.jpg', alt: 'Blue Lokah Chapter 1 Chandra film poster' },
 ];
 
+const invitationSlides: PosterSlide[] = [
+  { src: '/assets/invitations/floral-classic.webp', alt: 'Floral wedding invitation concept. Names, date and venue in the artwork are sample details.' },
+  { src: '/assets/invitations/tropical-garden.webp', alt: 'Tropical garden wedding invitation template concept with blank space for event details.' },
+  { src: '/assets/invitations/midnight-garden.webp', alt: 'Midnight blue floral wedding invitation template concept with blank space for event details.' },
+  { src: '/assets/invitations/blush-botanical.webp', alt: 'Blush botanical wedding invitation template concept with blank space for event details.' },
+];
+
 const work: WorkItem[] = [
   { title: 'Cherry Celebrations', category: 'Wedding & events website', tag: 'Client project', image: '/assets/cherry-showcase-mockup.jpg', alt: 'Cherry Celebrations website mockups shown across a laptop, tablet and phone', href: '/work/cherry-celebrations/', className: 'work-card-cherry' },
   { title: 'Handmade Haven', category: 'E-commerce', tag: 'Concept', image: '/handmade-haven.jpg', alt: 'Handmade Haven e-commerce concept shown on desktop and mobile', href: '/work/handmade-haven/', className: 'work-card-handmade' },
   { title: 'Architecture Studio', category: 'Interior & architecture website', tag: 'Concept', image: '/architecture-studio.jpg', alt: 'Architecture Studio concept displayed on a laptop in a warm interior', href: '/work/architecture-studio/', className: 'work-card-architecture' },
-  { title: 'Invitation', category: 'Interactive wedding invitation', tag: 'Experience preview', video: '/assets/invitation-demo.mp4', poster: '/assets/digital-invitation-sample.png', alt: 'A floral digital wedding invitation preview', href: INSTAGRAM_URL, external: true, className: 'work-card-invitation' },
+  { title: 'Digital Invitations', category: 'Names and event details shown are illustrative samples', tag: 'Template concepts', gallery: invitationSlides, href: INSTAGRAM_URL, external: true, className: 'work-card-invitation' },
   { title: 'Poster Design', category: 'Film, music & gaming', tag: 'Selected designs', gallery: posterSlides, href: INSTAGRAM_URL, external: true, className: 'work-card-poster' },
 ];
 
@@ -49,7 +56,7 @@ export default function SelectedWork() {
             {project.gallery ? (
               <article className="work-card-link">
                 <div className="work-card-media">
-                  <PosterCarousel slides={project.gallery} />
+                  <PosterCarousel slides={project.gallery} label={project.title === 'Digital Invitations' ? 'Digital invitation template gallery' : 'Poster design gallery'} />
                   <span className="work-card-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                 </div>
                 <div className="work-card-info"><div><p className="work-card-tag">{project.tag}</p><h3>{project.title}</h3><p className="work-card-category">{project.category}</p></div><a className="work-card-open work-card-open-link" href={project.href} target="_blank" rel="noreferrer" aria-label="See more designs on Instagram">↗</a></div>
