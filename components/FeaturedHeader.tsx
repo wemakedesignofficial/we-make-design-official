@@ -1,0 +1,2 @@
+import Reveal from './Reveal';
+export default function FeaturedHeader() { return <div className="featured-header container section-pad"><Reveal className="featured-title"><p className="eyebrow">Featured work</p><h2>A showcase of<br/>our recent work.</h2></Reveal><Reveal className="featured-aside"><p>Each project brings together thoughtful design, responsive development, and a clear visual point of view.</p><a className="text-link" href="#projects">View all projects <span>→</span></a></Reveal></div>; }
