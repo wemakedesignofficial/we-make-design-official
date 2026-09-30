@@ -19,8 +19,8 @@ export default function Studio() {
         </div>
       </Reveal>
       <Reveal className="studio-copy">
-        <p className="studio-intro">We Make Design is an independent creative and technology studio. We design and build websites, review web security, and create digital invitations and posters for small businesses, event brands, and growing teams.</p>
-        <div className="service-rows">
+        <p className="studio-intro" id="about">We Make Design is an independent creative and technology studio. We design and build websites, review web security, and create digital invitations and posters for small businesses, event brands, and growing teams.</p>
+        <div className="service-rows" id="services-list">
           {services.map(([number, title, description]) => (
             <div className="service-row" key={number}>
               <span>{number}</span>
