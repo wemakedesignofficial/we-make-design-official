@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { INVITATION_DEMO_POSTER, INVITATION_DEMO_URL, INVITATION_DEMO_VIDEO, INSTAGRAM_URL } from '@/lib/site';
 
 const disciplines = [
@@ -25,9 +25,12 @@ export default function Testimonial() {
   useEffect(() => {
     if (!INVITATION_DEMO_VIDEO) return;
     const video = document.createElement('video');
+    video.muted = true;
+    video.preload = 'auto';
     video.src = INVITATION_DEMO_VIDEO;
     video.onloadeddata = () => setVideoAvailable(true);
     video.onerror = () => setVideoAvailable(false);
+    video.load();
   }, []);
 
   const external = active.href.startsWith('http');
@@ -43,8 +46,7 @@ export default function Testimonial() {
           {disciplines.map((item) => <button key={item.id} className={`instrument-tab${active.id === item.id ? ' active' : ''}`} id={`tab-${item.id}`} type="button" role="tab" aria-selected={active.id === item.id} aria-controls="discipline-panel" onClick={() => setActiveId(item.id)} style={{ '--tab-accent': item.color } as React.CSSProperties}><span>{item.index}</span>{item.label}<i aria-hidden="true">↗</i></button>)}
         </div>
         <div id="discipline-panel" className="instrument-panel" role="tabpanel" aria-labelledby={`tab-${active.id}`}>
-          <AnimatePresence mode="sync" initial={false}>
-            <motion.div key={active.id} className="instrument-content" initial={reduceMotion ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={reduceMotion ? undefined : { opacity: 0, y: -8 }} transition={{ duration: reduceMotion ? 0 : 0.25, ease: 'easeOut' }}>
+            <motion.div key={active.id} className="instrument-content" initial={reduceMotion ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0 : 0.25, ease: 'easeOut' }}>
               <div className="instrument-copy" style={{ '--tab-accent': active.color } as React.CSSProperties}>
                 <p className="eyebrow">{active.tag}</p><h3>{active.title}</h3>
                 {active.checks ? <><ul className="security-checklist">{active.checks.map((check) => <li key={check}>{check}</li>)}</ul><p className="instrument-detail">{active.detail}</p></> : <p className="instrument-detail">{active.detail}</p>}
@@ -57,7 +59,6 @@ export default function Testimonial() {
                 <span className="art-index">{active.index}<br />—<br />04</span><span className="art-caption">{active.project}<i>↗</i></span><span className="art-outline" aria-hidden="true" />
               </a>
             </motion.div>
-          </AnimatePresence>
         </div>
         <div className="instrument-foot"><span>Choose a discipline to explore</span><span>DESIGN / BUILD / PROTECT</span></div>
       </div>

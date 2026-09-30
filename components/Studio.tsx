@@ -17,6 +17,7 @@ export default function Studio() {
         <div className="studio-image studio-brand-visual">
           <StudioLogo />
         </div>
+        <p className="studio-supporting-line">Designer and developer in one team, so nothing gets lost between design and code.</p>
       </Reveal>
       <Reveal className="studio-copy">
         <p className="studio-intro" id="about">We Make Design is an independent creative and technology studio. We design and build websites, review web security, and create digital invitations and posters for small businesses, event brands, and growing teams.</p>
