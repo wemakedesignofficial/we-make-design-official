@@ -15,7 +15,7 @@ export default function Hero() {
       <div className="hero-veil" aria-hidden="true" />
       <div className="hero-grid-lines" aria-hidden="true" />
       <div className="hero-shell container">
-        <motion.div className="hero-copy" initial={reduceMotion ? false : 'hidden'} animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.16, delayChildren: 0.12 } } }}>
+        <motion.div className="hero-copy" initial={false} animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.16, delayChildren: 0.12 } } }}>
           <motion.p className="eyebrow" variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.45 } } }}>We Make Designs</motion.p>
           <h1 id="hero-title">{headline.map((line, index) => <motion.span className={`hero-title-line${index === 1 ? ' is-lime' : ''}`} key={line} variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.7, ease: [0.2, 0.75, 0.25, 1] } } }}>{line}{index < headline.length - 1 ? ' ' : ''}</motion.span>)}</h1>
           <motion.p className="hero-description" variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.55 } } }}>Websites, digital invitations, security checks and graphic design, built for what&apos;s next.</motion.p>
@@ -26,7 +26,7 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        <motion.div className="hero-visual" aria-hidden="true" initial={reduceMotion ? false : { opacity: 0, scale: .9, y: 18 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: reduceMotion ? 0 : 1.2, delay: reduceMotion ? 0 : .25, ease: 'easeOut' }}>
+        <motion.div className="hero-visual" aria-hidden="true" initial={false} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: reduceMotion ? 0 : 1.2, delay: reduceMotion ? 0 : .25, ease: 'easeOut' }}>
           <div className="hero-w-float">
             <svg className="hero-w-mark" viewBox="0 0 720 600" role="presentation">
               <defs>
