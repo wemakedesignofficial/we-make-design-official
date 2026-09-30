@@ -1,4 +1,0 @@
-import Reveal from './Reveal';
-import { EMAIL_ADDRESS, INSTAGRAM_URL } from '@/lib/site';
-
-export default function CTA(){return <section className="cta section-pad" id="contact"><div className="container cta-inner"><Reveal className="cta-copy"><p className="eyebrow">Let&apos;s make something meaningful</p><h2>Have a project in mind?<br/>We&apos;d love to hear about it.</h2><p className="cta-note">Tell us about your website, security review, invitation or design project.</p><p className="contact-tip">Tip: DM the word SITE for a website quote.</p></Reveal><div className="contact-actions"><a className="contact-action primary-button" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">Message on Instagram <span aria-hidden="true">↗</span></a><a className="contact-action" href={`mailto:${EMAIL_ADDRESS}?subject=Project%20enquiry`}>Email us <span aria-hidden="true">↗</span></a></div></div></section>;}

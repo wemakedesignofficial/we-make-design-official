@@ -8,7 +8,7 @@ const projects = {
   'handmade-haven': {
     title: 'Handmade Haven', category: 'Concept design',
     description: 'A responsive e-commerce demo bringing handmade product discovery, maker stories, and warm editorial imagery together.',
-    note: 'Demo and project work created for a startup team.',
+    note: 'Concept website screens and visual direction.',
     images: [
       { src: '/handmade-haven.jpg', alt: 'Handmade Haven shop concept shown on a laptop, phone, and tablet', caption: 'Responsive shop mockup' },
       { src: '/assets/handmade-haven-project-board.jpg', alt: 'Handmade Haven visual direction and page concepts', caption: 'Visual direction and page concepts' },
@@ -16,8 +16,8 @@ const projects = {
   },
   'architecture-studio': {
     title: 'Architecture Studio', category: 'Concept design',
-    description: 'An editorial architecture website concept with project storytelling, studio services, and responsive layouts for an architecture team.',
-    note: 'Website project and mockups created for an architecture team.',
+    description: 'An editorial architecture website concept with project storytelling, studio services, and responsive layouts.',
+    note: 'Concept website screens and visual direction.',
     images: [
       { src: '/architecture-studio.jpg', alt: 'Architecture Studio website displayed on a laptop in a warm interior', caption: 'Laptop website mockup' },
       { src: '/assets/photo_2026-09-30_00-17-00.jpg', alt: 'Architecture Studio homepage, service, featured project, and process layouts', caption: 'Homepage and service direction' },
@@ -26,8 +26,8 @@ const projects = {
   },
   'cherry-celebrations': {
     title: 'Cherry Celebrations', category: 'Client project',
-    description: 'A warm, responsive website concept for a wedding and event team, paired with a refined visual direction and mockups for desktop and mobile.',
-    note: 'Website mockups and visual direction for Cherry Celebrations.',
+    description: 'A responsive website and visual direction created for Cherry Celebrations, shown here with desktop and mobile mockups.',
+    note: 'Client website mockups and visual direction.',
     images: [
       { src: '/assets/cherry-showcase-mockup.jpg', alt: 'Cherry Celebrations event website displayed across laptop, tablet, and phone mockups', caption: 'Responsive website mockup' },
       { src: '/assets/cherry-brand-direction.jpg', alt: 'Cherry Celebrations typography, color palette, brand elements, and interface direction', caption: 'Brand and interface direction' },
@@ -58,12 +58,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <main className="detail-page">
       <header className="nav detail-header">
-        <Link className="wordmark" href="/" aria-label="We Make Design home"><Image src="/wm-logo.png" alt="We Make Designs WM logo" width={126} height={76} priority /></Link>
-        <nav aria-label="Project navigation"><Link href="/#work">Selected work</Link><Link className="nav-cta" href="#contact">Start a project ↗</Link></nav>
+        <Link className="wordmark" href="/" aria-label="We Make Design home"><Image src="/wm-logo.png" alt="We Make Designs WM logo" width={126} height={76} /></Link>
+        <nav aria-label="Project navigation"><Link href="/#work">Selected work</Link><Link className="nav-cta" href="/#contact">Start a project ↗</Link></nav>
       </header>
       <section className="detail-hero container"><p className="eyebrow">{project.category}</p><h1>{project.title}</h1><p>{project.description}</p></section>
       <section className={`project-gallery project-gallery-count-${project.images.length}`} aria-label={`${project.title} project images`}>
-        {project.images.map((image, index) => <Reveal className="project-gallery-item" key={image.src}><figure><div className="project-gallery-media"><Image src={image.src} alt={image.alt} fill priority={index === 0} sizes="(max-width: 700px) 100vw, 70vw" /></div><figcaption>{image.caption}</figcaption></figure></Reveal>)}
+        {project.images.map((image) => <Reveal className="project-gallery-item" key={image.src}><figure><div className="project-gallery-media"><Image src={image.src} alt={image.alt} fill sizes="(max-width: 700px) 100vw, 70vw" /></div><figcaption>{image.caption}</figcaption></figure></Reveal>)}
       </section>
       <section className="detail-bottom container"><div><p className="eyebrow">About this work</p><p>{project.note}</p></div><Link href="/#work">← Back to selected work</Link><Link href="https://www.instagram.com/we_make_designs__/" target="_blank" rel="noreferrer">Discuss a project on Instagram ↗</Link></section>
     </main>
