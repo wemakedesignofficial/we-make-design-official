@@ -42,20 +42,22 @@ export default function Testimonial() {
         <p className="instrument-intro">Pick a direction. We’ll show you how we think, what we make, and where your project could begin.</p>
       </div>
       <div className="instrument-shell">
-        <div className="instrument-controls" role="tablist" aria-label="Explore studio services">
-          {disciplines.map((item) => <button key={item.id} className={`instrument-tab${active.id === item.id ? ' active' : ''}`} id={`tab-${item.id}`} type="button" role="tab" aria-selected={active.id === item.id} aria-controls="discipline-panel" onClick={() => setActiveId(item.id)} style={{ '--tab-accent': item.color } as React.CSSProperties}><span>{item.index}</span>{item.label}<i aria-hidden="true">↗</i></button>)}
-        </div>
         <div id="discipline-panel" className="instrument-panel" role="tabpanel" aria-labelledby={`tab-${active.id}`}>
             <motion.div key={active.id} className="instrument-content" initial={reduceMotion ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0 : 0.25, ease: 'easeOut' }}>
+              <nav className="instrument-controls" role="tablist" aria-label="Explore studio services">
+                <p className="instrument-index-label">Explore our disciplines <span>01 — 04</span></p>
+                {disciplines.map((item) => <button key={item.id} className={`instrument-tab${active.id === item.id ? ' active' : ''}`} id={`tab-${item.id}`} type="button" role="tab" aria-selected={active.id === item.id} aria-controls="discipline-panel" onClick={() => setActiveId(item.id)} style={{ '--tab-accent': item.color } as React.CSSProperties}><span>{item.index}</span><b>{item.label}</b><i aria-hidden="true">↗</i></button>)}
+                <p className="instrument-index-note">Design / Build / Protect</p>
+              </nav>
               <div className="instrument-copy" style={{ '--tab-accent': active.color } as React.CSSProperties}>
-                <p className="eyebrow">{active.tag}</p><h3>{active.title}</h3>
+                <p className="eyebrow"><span className="active-index">{active.index}</span> / {active.tag}</p><h3>{active.title}</h3>
                 {active.id !== 'security' && <p className="instrument-detail">{active.detail}</p>}
-                <p className="eyebrow offerings-eyebrow">What we provide</p>
+                <p className="eyebrow offerings-eyebrow">Included in this discipline</p>
                 <ul className="discipline-checklist">{active.checks?.map((check) => <li key={check}>{check}</li>)}</ul>
                 {active.id === 'security' && <p className="instrument-detail">{active.detail}</p>}
                 {active.id === 'invitation' && <div className="invitation-demo"><div className="invitation-demo-media">{videoAvailable ? <video src={INVITATION_DEMO_VIDEO} poster={INVITATION_DEMO_POSTER} muted loop autoPlay playsInline aria-label="Interactive invitation demo" /> : <div className="invitation-demo-placeholder" role="img" aria-label="Invitation video preview placeholder">Invitation demo preview</div>}</div><p>Interactive envelope reveal with a personalised countdown.</p>{INVITATION_DEMO_URL && <a href={INVITATION_DEMO_URL} target="_blank" rel="noreferrer">View live invitation ↗</a>}</div>}
                 <a href={active.href} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined} className="instrument-link">{external ? 'Talk to us about this' : `Explore ${active.project}`} <span>↗</span></a>
-                <div className="instrument-coordinate"><span>{active.index} / 04</span><span>WE MAKE DESIGN</span></div>
+                <div className="instrument-coordinate"><span>Selected discipline <b>{active.index} / 04</b></span><span>WE MAKE DESIGN</span></div>
               </div>
               <a className="instrument-art" href={active.href} aria-label={`${active.project}: ${active.label}`} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined}>
                 <Image src={active.image} alt={active.alt} fill sizes="(max-width: 700px) 100vw, 58vw" priority loading="eager" />
@@ -63,7 +65,7 @@ export default function Testimonial() {
               </a>
             </motion.div>
         </div>
-        <div className="instrument-foot"><span>Choose a discipline to explore</span><span>DESIGN / BUILD / PROTECT</span></div>
+        <div className="instrument-foot"><span>Choose a discipline to explore</span><span>Independent creative studio</span></div>
       </div>
     </section>
   );

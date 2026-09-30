@@ -126,3 +126,43 @@
 @media(max-width:700px){.studio-brand-visual .studio-logo-motion img{width:min(100%,270px)}}
 body{--display:var(--font-display),Georgia,serif;--body:var(--font-body),Arial,sans-serif}
 @media(max-width:700px){.service-row{grid-template-columns:26px minmax(0,1fr);gap:5px 10px}.service-row h3{font-size:18px}.service-row p{grid-column:2;font-size:10px;line-height:1.5}}
+
+/* Studio disciplines: a numbered index paired with a live project brief. */
+.studio-instrument{padding-block:clamp(76px,9vw,126px);background:radial-gradient(ellipse at 88% 16%,rgba(122,31,43,.09),transparent 35%),#11100e}
+.instrument-top{padding-bottom:clamp(32px,5vw,62px)}
+.instrument-top h2{max-width:700px}
+.instrument-shell{max-width:1440px}
+.instrument-panel{min-height:0;background:transparent;border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.instrument-content{grid-template-columns:minmax(190px,.29fr) minmax(300px,.58fr) minmax(0,1fr);min-height:650px;align-items:stretch}
+.instrument-controls{grid-column:1;grid-row:1;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;padding:26px 18px 22px;border:0;border-right:1px solid var(--border);background:rgba(255,255,255,.012)}
+.instrument-index-label,.instrument-index-note{display:flex;justify-content:space-between;gap:10px;color:#766f65;font-size:7px;letter-spacing:.12em;text-transform:uppercase}
+.instrument-index-label{margin:0 0 24px}.instrument-index-label span{white-space:nowrap}
+.instrument-tab{min-height:64px;padding:0 8px;gap:11px;border:0;border-top:1px solid var(--border);font:400 20px/1 var(--display)}
+.instrument-tab:last-of-type{border-bottom:1px solid var(--border)}.instrument-tab:first-child{padding-left:8px}
+.instrument-tab>b{font-weight:400}.instrument-tab>span{font-size:8px}.instrument-tab>i{font-size:12px}
+.instrument-tab.active{background:linear-gradient(90deg,rgba(122,31,43,.2),transparent 88%)}
+.instrument-tab.active::after{left:0;top:13px;bottom:13px;width:2px;height:auto}
+.instrument-index-note{margin:auto 0 0;padding-top:20px}
+.instrument-copy{grid-column:2;grid-row:1;min-width:0;justify-content:center;padding:56px clamp(28px,3.3vw,48px);border-right:1px solid var(--border)}
+.instrument-copy .eyebrow{font-size:8px}.instrument-copy .active-index{color:var(--text)}
+.instrument-copy h3{font-size:clamp(37px,3.4vw,49px);margin:22px 0 13px}
+.instrument-detail{font-size:12px;line-height:1.7}
+.offerings-eyebrow{margin-top:28px!important}
+.discipline-checklist{grid-template-columns:1fr;width:100%;gap:0;margin:0}
+.discipline-checklist li{padding:9px 0 9px 16px;border-top:1px solid var(--border);font-size:10px;line-height:1.45}
+.discipline-checklist li::before{left:1px;top:1.25em;width:5px;height:5px}
+.instrument-link{margin-top:26px}
+.instrument-coordinate{left:clamp(28px,3.3vw,48px);right:clamp(28px,3.3vw,48px);font-size:7px}
+.instrument-coordinate span:first-child{display:flex;gap:12px}.instrument-coordinate b{color:var(--text);font-weight:400}
+.instrument-art{grid-column:3;grid-row:1;min-height:650px;margin:18px;aspect-ratio:auto;border:1px solid var(--border);background:radial-gradient(ellipse at 75% 20%,rgba(201,162,107,.12),transparent 48%),#191714}
+.instrument-art>img{object-fit:contain;object-position:center;padding:clamp(22px,3vw,46px);transition:transform .7s cubic-bezier(.2,.65,.3,1),filter .5s}
+.instrument-art:hover>img{transform:scale(1.018);filter:brightness(1.06)}
+.instrument-art::after{inset:0;background:linear-gradient(0deg,rgba(12,11,10,.56),transparent 22%);opacity:.45}
+.art-index{top:17px;left:18px;color:var(--muted);font-size:8px}
+.art-caption{left:18px;right:18px;bottom:17px;font-size:22px}
+.art-outline{inset:10px;border-color:rgba(241,233,221,.1)}
+.instrument-art:hover .art-outline{inset:10px;border-color:rgba(241,233,221,.24)}
+.instrument-foot{height:42px}
+@media(max-width:900px){.instrument-content{grid-template-columns:160px minmax(250px,.85fr) minmax(0,1fr);min-height:590px}.instrument-controls{padding-inline:12px}.instrument-tab{font-size:18px;gap:8px}.instrument-copy{padding:40px 24px}.instrument-copy h3{font-size:clamp(33px,4vw,43px)}.instrument-art{min-height:590px;margin:12px}.instrument-art>img{padding:18px}.instrument-coordinate{left:24px;right:24px}}
+@media(max-width:700px){.studio-instrument{padding-block:68px}.instrument-top{padding-bottom:25px}.instrument-top h2{font-size:clamp(48px,10vw,64px)}.instrument-content{grid-template-columns:1fr;min-height:0}.instrument-controls{grid-column:1;grid-row:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:0;border:0;border-bottom:1px solid var(--border);overflow-x:auto}.instrument-index-label,.instrument-index-note{display:none}.instrument-tab,.instrument-tab:first-child{min-width:0;min-height:57px;padding:0 5px;justify-content:center;gap:6px;border:0;border-right:1px solid var(--border);font-size:clamp(14px,4vw,18px)}.instrument-controls>.instrument-tab:nth-child(n){border-right:1px solid var(--border);border-bottom:0}.instrument-controls>.instrument-tab:last-of-type{border-right:0}.instrument-tab>span{font-size:7px}.instrument-tab>i{display:none}.instrument-tab.active{background:linear-gradient(0deg,rgba(122,31,43,.17),transparent 80%)}.instrument-tab.active::after{left:20%;right:20%;top:auto;bottom:0;width:auto;height:2px}.instrument-copy{grid-column:1;grid-row:2;min-height:0;padding:31px 22px 58px;border-right:0;border-bottom:1px solid var(--border)}.instrument-copy h3{font-size:clamp(39px,9vw,51px);margin:17px 0 10px}.instrument-detail{font-size:11px}.offerings-eyebrow{margin-top:21px!important}.discipline-checklist{grid-template-columns:1fr 1fr;column-gap:13px}.discipline-checklist li{font-size:9px;padding-block:9px}.instrument-link{margin-top:22px}.instrument-coordinate{left:22px;right:22px;bottom:16px}.instrument-art{grid-column:1;grid-row:3;min-height:0;aspect-ratio:1/1.1;margin:12px;border-radius:2px}.instrument-art>img{padding:18px}.art-caption{font-size:20px}.instrument-foot{font-size:6px;letter-spacing:.06em}}
+@media(max-width:390px){.instrument-tab,.instrument-tab:first-child{gap:4px;font-size:14px}.instrument-tab>span{font-size:6px}.instrument-copy{padding-inline:17px}.discipline-checklist{grid-template-columns:1fr}.instrument-coordinate{left:17px;right:17px}.instrument-art{aspect-ratio:1/1.15;margin:9px}.instrument-foot{letter-spacing:0}}
