@@ -35,8 +35,8 @@ const invitationSlides: PosterSlide[] = [
 ];
 
 const work: WorkItem[] = [
-  { title: 'Cherry Celebrations', category: 'Wedding & events website', tag: 'Client project', image: '/assets/cherry-brand-direction.jpg', alt: 'Cherry Celebrations brand direction and website presentation board', href: '/work/cherry-celebrations/', className: 'work-card-cherry' },
-  { title: 'Handmade Haven', category: 'E-commerce', tag: 'Concept', image: '/assets/handmade-haven-project-board.jpg', alt: 'Handmade Haven e-commerce concept presentation board', href: '/work/handmade-haven/', className: 'work-card-handmade' },
+  { title: 'Cherry Celebrations', category: 'Wedding & events website', tag: 'Client project', image: '/assets/cherry-showcase-mockup.jpg', alt: 'Cherry Celebrations website shown across laptop, tablet and phone', href: '/work/cherry-celebrations/', className: 'work-card-cherry' },
+  { title: 'Handmade Haven', category: 'E-commerce', tag: 'Concept', image: '/handmade-haven.jpg', alt: 'Handmade Haven storefront shown across laptop, tablet and phone', href: '/work/handmade-haven/', className: 'work-card-handmade' },
   { title: 'Architecture Studio', category: 'Interior & architecture website', tag: 'Concept', image: '/architecture-studio.jpg', alt: 'Architecture Studio concept displayed on a laptop in a warm interior', href: '/work/architecture-studio/', className: 'work-card-architecture' },
   { title: 'Digital Invitations', category: 'Names and event details shown are illustrative samples', tag: 'Template concepts', gallery: invitationSlides, href: INSTAGRAM_URL, external: true, className: 'work-card-invitation' },
   { title: 'Poster Design', category: 'Film, music & gaming', tag: 'Selected designs', gallery: posterSlides, href: INSTAGRAM_URL, external: true, className: 'work-card-poster' },
