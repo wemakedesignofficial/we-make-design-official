@@ -6,7 +6,7 @@ export default function RotatingBadge() {
         <circle cx="66" cy="66" r="63" fill="#e2ae6c" />
         <text><textPath href="#badge-circle">LET&apos;S BUILD TOGETHER &middot; LET&apos;S BUILD TOGETHER &middot; </textPath></text>
       </svg>
-      <span aria-hidden="true">âœ³</span>
+      <span aria-hidden="true">&#10033;</span>
     </div>
   );
 }

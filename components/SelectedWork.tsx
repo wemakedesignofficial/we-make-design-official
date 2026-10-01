@@ -48,7 +48,7 @@ export default function SelectedWork() {
       <div className="container work-container">
         <div className="work-heading">
           <Reveal className="work-heading-main"><p className="eyebrow">Selected work / Shared when ready</p><h2 id="work-title">A selection of work<br />we can share.</h2></Reveal>
-          <Reveal className="work-heading-aside"><p>Some projects stay private until launch. This is a small selection of work currently cleared to share, including a client project and clearly labelled concepts.</p><a className="button button-outline" href="#work-grid">View Selected Work <span aria-hidden="true">↗</span></a></Reveal>
+          <Reveal className="work-heading-aside"><p>Some projects stay private until launch. This is a small selection of work currently cleared to share, including a client project and clearly labelled concepts.</p><a className="button button-outline" href="#work-grid">View Selected Work <span aria-hidden="true">&#8599;&#65038;</span></a></Reveal>
         </div>
         <div className="work-grid" id="work-grid">
           {work.map((project, index) => <Reveal key={project.title} className={`work-card ${project.className}`}>
@@ -58,16 +58,16 @@ export default function SelectedWork() {
                   <PosterCarousel slides={project.gallery} label={project.title === 'Digital Invitations' ? 'Digital invitation template gallery' : 'Poster design gallery'} />
                   <span className="work-card-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                 </div>
-                <div className="work-card-info"><div><p className="work-card-tag">{project.tag}</p><h3>{project.title}</h3><p className="work-card-category">{project.category}</p></div><a className="work-card-open work-card-open-link" href={project.href} target="_blank" rel="noreferrer" aria-label="See more designs on Instagram">↗</a></div>
+                <div className="work-card-info"><div><p className="work-card-tag">{project.tag}</p><h3>{project.title}</h3><p className="work-card-category">{project.category}</p></div><a className="work-card-open work-card-open-link" href={project.href} target="_blank" rel="noreferrer" aria-label="See more designs on Instagram">&#8599;&#65038;</a></div>
               </article>
             ) : (
               <a className="work-card-link" href={project.href} target={project.external ? '_blank' : undefined} rel={project.external ? 'noreferrer' : undefined} aria-label={`${project.title}, ${project.tag}. ${project.external ? 'Opens Instagram' : 'View project'}`}>
                 <div className="work-card-media">
                   {project.video ? <video src={project.video} poster={project.poster} muted loop autoPlay playsInline preload="metadata" aria-label={project.alt} /> : <Image src={project.image!} alt={project.alt!} fill sizes="(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 42vw" />}
-                  <span className="work-card-arrow" aria-hidden="true">↗</span>
+                  <span className="work-card-arrow" aria-hidden="true">&#8599;&#65038;</span>
                   <span className="work-card-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                 </div>
-                <div className="work-card-info"><div><p className="work-card-tag">{project.tag}</p><h3>{project.title}</h3><p className="work-card-category">{project.category}</p></div><span className="work-card-open" aria-hidden="true">↗</span></div>
+                <div className="work-card-info"><div><p className="work-card-tag">{project.tag}</p><h3>{project.title}</h3><p className="work-card-category">{project.category}</p></div><span className="work-card-open" aria-hidden="true">&#8599;&#65038;</span></div>
               </a>
             )}
           </Reveal>)}

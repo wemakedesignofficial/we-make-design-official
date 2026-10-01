@@ -60,7 +60,7 @@ export default function Nav() {
         <nav className="desktop-nav" aria-label="Main navigation">
           {links.map((link) => <a key={link.section} className={active === link.section ? 'active' : ''} href={link.href}><span>{link.label}</span></a>)}
         </nav>
-        <a className="nav-talk" href="#contact">Let&apos;s Talk <span aria-hidden="true">↗</span></a>
+        <a className="nav-talk" href="#contact">Let&apos;s Talk <span aria-hidden="true">&#8599;&#65038;</span></a>
         <button ref={toggleRef} className={`menu-toggle${open ? ' is-open' : ''}`} type="button" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen((value) => !value)}>
           <span /><span />
         </button>
@@ -68,7 +68,7 @@ export default function Nav() {
       <div ref={menuRef} id="mobile-menu" className={`mobile-menu${open ? ' is-open' : ''}`} aria-hidden={!open}>
         <div className="mobile-menu-top"><span className="eyebrow">Navigate</span><button type="button" onClick={close} aria-label="Close menu">Close <span aria-hidden="true">×</span></button></div>
         <nav aria-label="Mobile navigation">
-          {links.map((link, index) => <a key={link.section} className={active === link.section ? 'active' : ''} href={link.href} onClick={close}><span className="mobile-link-index">0{index + 1}</span><span>{link.label}</span><span className="mobile-link-arrow" aria-hidden="true">↗</span></a>)}
+          {links.map((link, index) => <a key={link.section} className={active === link.section ? 'active' : ''} href={link.href} onClick={close}><span className="mobile-link-index">0{index + 1}</span><span>{link.label}</span><span className="mobile-link-arrow" aria-hidden="true">&#8599;&#65038;</span></a>)}
         </nav>
         <p className="mobile-menu-foot">Design / Build / Protect</p>
       </div>
