@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import Reveal from '@/components/Reveal';
 import StaticProjectRedirect from '@/components/StaticProjectRedirect';
+import { SITE_NAME, SITE_URL, DEFAULT_OG_IMAGE } from '@/lib/site';
 
 const projects = {
   'handmade-haven': {
@@ -34,24 +35,45 @@ const projects = {
       { src: '/assets/cherry-page-plan.jpg', alt: 'Cherry Celebrations hero, gallery, process, work, and responsive page plan', caption: 'Page structure and responsive layouts' },
     ],
   },
+  'digital-wedding-invitation': {
+    title: 'Digital Wedding Invitation', category: 'Digital invitation design',
+    description: 'An interactive digital wedding invitation concept with floral artwork, event details, and a mobile-friendly presentation.',
+    note: 'Digital invitation concept exploring an elegant, shareable format for wedding details.',
+    images: [
+      { src: '/assets/digital-invitation-sample.png', alt: 'Floral digital wedding invitation sample with event details', caption: 'Invitation concept' },
+      { src: '/assets/digital-invitation-template-02.png', alt: 'Second digital wedding invitation template concept', caption: 'Alternate invitation direction' },
+      { src: '/assets/digital-invitation-template-03.png', alt: 'Third digital wedding invitation template concept', caption: 'Invitation layout study' },
+    ],
+  },
+  'poster-design': {
+    title: 'Film and Gaming Poster Design', category: 'Poster design',
+    description: 'Poster design concepts for film, gaming, events, and social campaigns, developed to make the central idea clear at a glance.',
+    note: 'Poster and graphic design samples for entertainment and event brands.',
+    images: [
+      { src: '/assets/brochure-posters.png', alt: 'Poster design services and visual samples for events and entertainment', caption: 'Poster design sample' },
+    ],
+  },
 } as const;
 
 type Slug = keyof typeof projects;
 
 export function generateStaticParams() {
-  return [...Object.keys(projects), 'digital-invitation'].map((slug) => ({ slug }));
+  return Object.keys(projects).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  if (slug === 'digital-invitation') return { title: 'Cherry Celebrations | We Make Design', description: 'Selected work by We Make Design.', alternates: { canonical: '/work/cherry-celebrations/' } };
   const project = projects[slug as Slug];
-  return { title: project ? `${project.title} | We Make Design` : 'Project not found | We Make Design', description: project?.description ?? 'Selected work by We Make Design.' };
+  return {
+    title: project?.title ?? 'Project not found',
+    description: project?.description ?? 'Selected work by We Make Designs.',
+    alternates: { canonical: `/work/${slug}/` },
+    ...(project ? { openGraph: { type: 'article' as const, title: `${project.title} | ${SITE_NAME}`, description: project.description, url: `${SITE_URL}/work/${slug}/`, images: [{ url: project.images[0].src, alt: project.images[0].alt }] } } : { robots: { index: false, follow: false }, openGraph: { type: 'website' as const, title: `Project not found | ${SITE_NAME}`, description: 'This project page could not be found.', images: [DEFAULT_OG_IMAGE] } }),
+  };
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  if (slug === 'digital-invitation') return <StaticProjectRedirect destination="/work/cherry-celebrations/" />;
   const project = projects[slug as Slug];
   if (!project) return <main className="not-found container"><p className="eyebrow">Project not found</p><h1>This project isn’t here.</h1><Link href="/">Return to We Make Design ↗</Link></main>;
 
@@ -63,7 +85,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       </header>
       <section className="detail-hero container"><p className="eyebrow">{project.category}</p><h1>{project.title}</h1><p>{project.description}</p></section>
       <section className={`project-gallery project-gallery-count-${project.images.length}`} aria-label={`${project.title} project images`}>
-        {project.images.map((image) => <Reveal className="project-gallery-item" key={image.src}><figure><div className="project-gallery-media"><Image src={image.src} alt={image.alt} fill sizes="(max-width: 700px) 100vw, 70vw" /></div><figcaption>{image.caption}</figcaption></figure></Reveal>)}
+        {project.images.map((image, index) => <Reveal className="project-gallery-item" key={image.src}><figure><div className="project-gallery-media"><Image src={image.src} alt={image.alt} fill priority={index === 0} loading={index === 0 ? undefined : 'lazy'} sizes="(max-width: 700px) 100vw, 70vw" /></div><figcaption>{image.caption}</figcaption></figure></Reveal>)}
       </section>
       <section className="detail-bottom container"><div><p className="eyebrow">About this work</p><p>{project.note}</p></div><Link href="/#work">← Back to selected work</Link><Link href="https://www.instagram.com/we_make_designs__/" target="_blank" rel="noreferrer">Discuss a project on Instagram ↗</Link></section>
     </main>

@@ -1,7 +1,9 @@
 {
   "name": "we-make-design-official",
+  "account_id": "e73f065d8bda7cf9714a9e567822e8a8",
   "compatibility_date": "2026-09-30",
   "assets": {
-    "directory": "./out"
+    "directory": "./out",
+    "not_found_handling": "404-page"
   }
 }

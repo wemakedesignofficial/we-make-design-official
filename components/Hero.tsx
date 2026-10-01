@@ -22,7 +22,7 @@ export default function Hero() {
           <motion.div className="hero-actions" variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.55 } } }}>
             <MagneticLink className="hero-start" href="#contact"><span className="lime-orb-arrow" aria-hidden="true">&rarr;</span><span>Start a Project</span></MagneticLink>
             <span className="hero-action-divider" aria-hidden="true" />
-            <a className="hero-work-link" href="#work">Explore Our Work <span aria-hidden="true">&#8599;</span></a>
+            <a className="hero-work-link" href="#work">Explore Our Work <span aria-hidden="true">↗</span></a>
           </motion.div>
         </motion.div>
 
@@ -30,7 +30,7 @@ export default function Hero() {
           <div className="hero-w-float">
             <svg className="hero-w-mark" viewBox="0 0 720 600" role="presentation">
               <defs>
-                <linearGradient id="chromeW" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#fff" stopOpacity=".94"/><stop offset=".26" stopColor="#d79a58" stopOpacity=".5"/><stop offset=".52" stopColor="#f2e5d2" stopOpacity=".95"/><stop offset=".75" stopColor="#8a663f" stopOpacity=".62"/><stop offset="1" stopColor="#fff6eb" stopOpacity=".9"/></linearGradient>
+                <linearGradient id="chromeW" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#fff" stopOpacity=".94"/><stop offset=".26" stopColor="#b9a2ff" stopOpacity=".5"/><stop offset=".52" stopColor="#e7e3f4" stopOpacity=".95"/><stop offset=".75" stopColor="#8073b2" stopOpacity=".62"/><stop offset="1" stopColor="#f7f5ff" stopOpacity=".9"/></linearGradient>
                 <filter id="wGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="18" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
               </defs>
               <path d="M142 172 245 444 357 229 472 444 580 172" fill="none" stroke="url(#chromeW)" strokeWidth="45" strokeLinecap="square" strokeLinejoin="bevel" filter="url(#wGlow)" />
@@ -38,8 +38,8 @@ export default function Hero() {
             </svg>
           </div>
           <svg className="hero-orbit" viewBox="0 0 720 600">
-            <ellipse cx="360" cy="300" rx="260" ry="152" transform="rotate(-22 360 300)" fill="none" stroke="rgba(226,174,108,.47)" strokeWidth="1" />
-            <g className="orbiting-dot"><circle cx="620" cy="300" r="5" fill="#e2ae6c" /><circle cx="620" cy="300" r="11" fill="none" stroke="#e2ae6c" strokeOpacity=".24" /></g>
+            <ellipse cx="360" cy="300" rx="260" ry="152" transform="rotate(-22 360 300)" fill="none" stroke="rgba(212,245,60,.47)" strokeWidth="1" />
+            <g className="orbiting-dot"><circle cx="620" cy="300" r="5" fill="#d4f53c" /><circle cx="620" cy="300" r="11" fill="none" stroke="#d4f53c" strokeOpacity=".24" /></g>
           </svg>
           <div className="hero-dimension-label">W<span> / 01</span></div>
         </motion.div>
