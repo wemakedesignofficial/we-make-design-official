@@ -1,13 +1,12 @@
 import Image from 'next/image';
 import Reveal from './Reveal';
-import { INSTAGRAM_URL } from '@/lib/site';
 
 const work = [
-  { title: 'Cherry Celebrations', category: 'Wedding & events website', tag: 'Client project', image: '/assets/cherry-showcase-mockup.jpg', alt: 'Cherry Celebrations website mockups shown across a laptop, tablet and phone', href: '/work/cherry-celebrations/', className: 'work-card-cherry' },
-  { title: 'Handmade Haven', category: 'E-commerce', tag: 'Concept', image: '/handmade-haven.jpg', alt: 'Handmade Haven e-commerce concept shown on desktop and mobile', href: '/work/handmade-haven/', className: 'work-card-handmade' },
-  { title: 'Architecture Studio', category: 'Interior & architecture website', tag: 'Concept', image: '/architecture-studio.jpg', alt: 'Architecture Studio concept displayed on a laptop in a warm interior', href: '/work/architecture-studio/', className: 'work-card-architecture' },
-  { title: 'Invitation', category: 'Interactive wedding invitation', tag: 'Experience preview', video: '/assets/invitation-demo.mp4', poster: '/assets/digital-invitation-sample.png', alt: 'A floral digital wedding invitation preview', href: '/work/digital-wedding-invitation/', className: 'work-card-invitation' },
-  { title: 'Poster Design', category: 'Film & gaming', tag: 'Service sample', image: '/assets/brochure-posters.png', alt: 'Poster design services brochure sample', href: '/work/poster-design/', className: 'work-card-poster' },
+  { title: 'Cherry Celebrations', category: 'Wedding & events website', tag: 'Client project', image: '/assets/cherry-celebrations-new-1600x900.jpg', alt: 'Updated Cherry Celebrations wedding website design displayed across desktop and mobile screens', href: '/work/cherry-celebrations/', className: 'work-card-cherry' },
+  { title: 'Handmade Haven', category: 'E-commerce', tag: 'Concept', image: '/assets/handmade-haven-1200x900.jpg', alt: 'Updated Handmade Haven e-commerce concept shown on desktop and mobile', href: '/work/handmade-haven/', className: 'work-card-handmade' },
+  { title: 'Architecture Studio', category: 'Interior & architecture website', tag: 'Concept', image: '/assets/architecture-studio-1200x900.jpg', alt: 'Updated Architecture Studio website concept displayed on screen', href: '/work/architecture-studio/', className: 'work-card-architecture' },
+  { title: 'Invitation', category: 'Interactive wedding invitation', tag: 'Experience preview', video: '/assets/invitation-demo.mp4', poster: '/assets/digital-wedding-invitation-custom-concept-01.png', alt: 'Burgundy floral digital wedding invitation for Anaya and Rohan', href: '/work/digital-wedding-invitation/', className: 'work-card-invitation' },
+  { title: 'Poster Design', category: 'Film & gaming', tag: 'Service sample', image: '/assets/posters-1200x900.jpg', alt: 'Poster design portfolio sample showing custom artwork for film, events and gaming', href: '/work/poster-design/', className: 'work-card-poster' },
 ];
 
 export default function SelectedWork() {
