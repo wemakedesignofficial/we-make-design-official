@@ -11,7 +11,7 @@ export default function Hero() {
 
   return (
     <section className="hero-section" id="top" aria-labelledby="hero-title">
-      <Image className="hero-background" src="/hero.jpg" alt="" fill priority sizes="100vw" />
+      <Image className="hero-background" src="/hero-wm.jpg" alt="" fill priority sizes="100vw" />
       <div className="hero-veil" aria-hidden="true" />
       <div className="hero-grid-lines" aria-hidden="true" />
       <div className="hero-shell container">
