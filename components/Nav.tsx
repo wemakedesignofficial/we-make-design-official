@@ -28,6 +28,37 @@ export default function Nav() {
   }, []);
 
   useEffect(() => {
+    const scrollToSection = (id: string, behavior: ScrollBehavior) => {
+      const target = document.getElementById(id);
+      if (!target) return false;
+      target.scrollIntoView({ behavior, block: 'start' });
+      window.history.replaceState(window.history.state, '', `${window.location.pathname}${window.location.search}`);
+      return true;
+    };
+
+    const onAnchorClick = (event: MouseEvent) => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !(event.target instanceof Element)) return;
+      const anchor = event.target.closest<HTMLAnchorElement>('a[href^="#"]');
+      const hash = anchor?.getAttribute('href');
+      if (!hash || hash.length < 2 || !document.getElementById(hash.slice(1))) return;
+      event.preventDefault();
+      scrollToSection(hash.slice(1), window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth');
+    };
+
+    const onHashChange = () => {
+      if (window.location.hash) scrollToSection(window.location.hash.slice(1), 'instant');
+    };
+
+    document.addEventListener('click', onAnchorClick);
+    window.addEventListener('hashchange', onHashChange);
+    if (window.location.hash) requestAnimationFrame(onHashChange);
+    return () => {
+      document.removeEventListener('click', onAnchorClick);
+      window.removeEventListener('hashchange', onHashChange);
+    };
+  }, []);
+
+  useEffect(() => {
     if (!open) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
